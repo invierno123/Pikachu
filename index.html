@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <title>皮卡丘</title>
-    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    
+    <div id="demo"></div>
+    <style id="demo2"></style>
+    <style>
+        #demo2{
+            display: none;
+           
+        }
+        #demo{
+            position: fixed;
+            height: 40vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 1px solid black;
+            overflow-y: auto;
+        }
+        #demo::-webkit-scrollbar{
+            display: none;
+        }
+        #html{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70vh;
+        }
+    </style>
+    <div id="html">
     <div class="skin">
         <div class="eye left"></div>
         <div class="eye right"></div>
@@ -35,5 +64,6 @@
         </div>
     </div>
     <script src="main.js"></script>
+</div>
 </body>
 </html>
