@@ -1,20 +1,17 @@
 const string=`
-
-* {
+.skin * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  *::before,
-  *::after {
+.skin *::before,
+.skin *::after {
     box-sizing: border-box;
-  }
-  body {
-    background-color: rgb(255, 230, 0);
-    min-height: 100vh;
   }
   
   .skin {
+    background-color: rgb(255, 230, 0);
+    min-height: 50vh;
     position: relative;
   }
   .nose {
@@ -198,15 +195,44 @@ const string=`
 let n=1
 demo.innerText=string.substr(0,n)
 demo2.innerHTML=string.substr(0,n)
-console.log(n)
-let id = setInterval(()=>{
+
+let time=100
+const fn=()=>{
     n+=1
     if(n>string.length){
         window.clearInterval(id)
         return
     }
-    console.log(n+':'+string.substr(0,n))
+
     demo.innerText=string.substr(0,n)
     demo2.innerHTML=string.substr(0,n)
     demo.scrollTop=demo.scrollHeight
-},0)
+}
+const pause =()=>{
+    window.clearInterval(id)  
+}
+const play=()=>{
+    return setInterval(fn,time)
+}
+let id = play()
+btnPause.onclick=()=>{
+    pause()
+}
+btnPlay.onclick=()=>{
+    id=play()
+}
+btnSlow.onclick=()=>{
+    pause()
+    time=300
+    id=play()
+}
+btnNormal.onclick=()=>{
+    pause()
+    time=100
+    id=play()
+}
+btnFast.onclick=()=>{
+    pause()
+    time=0
+    id=play()
+}
